@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from "@/lib/utils";
@@ -13,6 +12,12 @@ import {
   Settings,
   UserPlus,
   Users2,
+  CreditCard,
+  Package,
+  Upload,
+  FileText,
+  Building,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -59,6 +64,37 @@ const mainNav: NavItem[] = [
     title: "Team",
     href: "/team",
     icon: Users2,
+  },
+];
+
+const businessNav: NavItem[] = [
+  {
+    title: "Subscriptions",
+    href: "/subscriptions",
+    icon: CreditCard,
+  },
+  {
+    title: "Add-ons",
+    href: "/add-ons",
+    icon: Package,
+  },
+  {
+    title: "File Transfer",
+    href: "/file-transfer",
+    icon: Upload,
+  },
+];
+
+const toolsNav: NavItem[] = [
+  {
+    title: "Office Tools",
+    href: "/office-tools",
+    icon: FileText,
+  },
+  {
+    title: "CRM",
+    href: "/crm",
+    icon: Building,
   },
 ];
 
@@ -179,6 +215,62 @@ export function SideNavigation({ collapsed = false, setCollapsed }: SideNavigati
               </div>
             </div>
             {mainNav.map((item) => (
+              <NavItem
+                key={item.href}
+                item={item}
+                collapsed={collapsed && !isHovering}
+                active={isActivePath(item.href)}
+              />
+            ))}
+          </div>
+        </nav>
+        <Separator className="my-4" />
+        <nav className="grid gap-2 px-2">
+          <div className="grid gap-1 px-2">
+            <div
+              className={cn(
+                "flex items-center gap-2 py-1",
+                collapsed && !isHovering ? "justify-center" : "justify-start"
+              )}
+            >
+              <div
+                className={cn(
+                  "text-xs font-medium text-muted-foreground transition-opacity",
+                  collapsed && !isHovering ? "opacity-0 w-0 hidden" : "opacity-100"
+                )}
+              >
+                BUSINESS
+              </div>
+            </div>
+            {businessNav.map((item) => (
+              <NavItem
+                key={item.href}
+                item={item}
+                collapsed={collapsed && !isHovering}
+                active={isActivePath(item.href)}
+              />
+            ))}
+          </div>
+        </nav>
+        <Separator className="my-4" />
+        <nav className="grid gap-2 px-2">
+          <div className="grid gap-1 px-2">
+            <div
+              className={cn(
+                "flex items-center gap-2 py-1",
+                collapsed && !isHovering ? "justify-center" : "justify-start"
+              )}
+            >
+              <div
+                className={cn(
+                  "text-xs font-medium text-muted-foreground transition-opacity",
+                  collapsed && !isHovering ? "opacity-0 w-0 hidden" : "opacity-100"
+                )}
+              >
+                TOOLS
+              </div>
+            </div>
+            {toolsNav.map((item) => (
               <NavItem
                 key={item.href}
                 item={item}

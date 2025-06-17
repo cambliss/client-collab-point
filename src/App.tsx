@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +8,11 @@ import Index from "./pages/Index";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
 import Dashboard from "./pages/Dashboard";
+import Subscriptions from "./pages/Subscriptions";
+import AddOns from "./pages/AddOns";
+import FileTransfer from "./pages/FileTransfer";
+import OfficeTools from "./pages/OfficeTools";
+import CRM from "./pages/CRM";
 import { DashboardLayout } from "./components/layout/DashboardLayout";
 import NotFound from "./pages/NotFound";
 
@@ -30,13 +36,21 @@ const App = () => (
             {/* Redirect / to /dashboard when inside the dashboard layout */}
             <Route index element={<Navigate to="/dashboard" replace />} />
             
-            {/* Other Dashboard Routes */}
-            <Route path="/clients" element={<Dashboard />} /> {/* Placeholders - will be replaced with actual pages */}
+            {/* Main Dashboard Routes */}
+            <Route path="/clients" element={<Dashboard />} />
             <Route path="/clients/new" element={<Dashboard />} />
             <Route path="/projects" element={<Dashboard />} />
             <Route path="/tasks" element={<Dashboard />} />
             <Route path="/messages" element={<Dashboard />} />
             <Route path="/team" element={<Dashboard />} />
+            
+            {/* New Routes */}
+            <Route path="/subscriptions" element={<Subscriptions />} />
+            <Route path="/add-ons" element={<AddOns />} />
+            <Route path="/file-transfer" element={<FileTransfer />} />
+            <Route path="/office-tools" element={<OfficeTools />} />
+            <Route path="/crm" element={<CRM />} />
+            
             <Route path="/settings" element={<Dashboard />} />
           </Route>
           
