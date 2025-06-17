@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronRight, ExternalLink, Users, BarChart3, FilePlus, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Index() {

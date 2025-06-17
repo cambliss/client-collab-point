@@ -1,4 +1,3 @@
-
 import { ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ArrowDown, ArrowUp } from "lucide-react";
@@ -30,6 +29,7 @@ export interface StatCardProps extends VariantProps<typeof statCardVariants> {
   subtitle?: string;
   className?: string;
   valueClassName?: string;
+  style?: React.CSSProperties;
 }
 
 export function StatCard({
@@ -42,9 +42,10 @@ export function StatCard({
   variant,
   className,
   valueClassName,
+  style,
 }: StatCardProps) {
   return (
-    <div className={cn(statCardVariants({ variant }), className)}>
+    <div className={cn(statCardVariants({ variant }), className)} style={style}>
       <div className="flex items-start justify-between">
         <div>
           <p className="text-sm font-medium text-muted-foreground">{title}</p>
